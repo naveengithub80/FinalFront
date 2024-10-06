@@ -1,0 +1,31 @@
+<!-- attendance-sheet.component.html -->
+<div class="container">
+  <h1>Attendance Sheet</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Date and Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.employeeName }}</td>
+        <td>
+          <select [(ngModel)]="employee.status">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <input type="datetime-local" [(ngModel)]="employee.dateTime" />
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <button (click)="submitAttendance()">Submit Attendance</button>
+</div>
